@@ -3,43 +3,46 @@ import '../styles/App.css';
 
 const App = () => {
     const [renderBall, setRenderBall] = useState(false);
-    const [posi, setPosi] = useState(0);
+    const [posi, setPosi] = useState({let:5,top:5});
     const [ballPosition, setBallPosition] = useState({ left: 0, top: 0 });
+    const updateXY = (x,y) =>{
+        setBallPosition({
+            left:x,
+            top:y,
+        });
+    };
     useEffect(() => {
-        document.addEventListener("keydown", (event) => {
-            //console.log(event.keyCode);
+        const keyListener = document.addEventListener("keydown", (event) => {
+           
             switch (event.keyCode) {
                 case 39:
-                    setBallPosition({
-                        left: ballPosition.left + 5,
-                        top: ballPosition.top,
-                    });
+                    updateXY(ballPosition.left+5,ballPosition.top);
                     break;
                 case 40:
-                    setBallPosition({
-                        left: ballPosition.left,
-                        top: ballPosition.top + 5,
-                    });
+                   updateXY(ballPosition.left,ballPosition.top+5);
                     break;
                 case 37:
-                    setBallPosition({
-                        left: ballPosition.left - 5,
-                        top: ballPosition.top,
-                    });
+                    updateXY(ballPosition.left-5,ballPosition.top);
                     break;
                 case 38:
-                    setBallPosition({
-                        left: ballPosition.left,
-                        top: ballPosition.top - 5,
-                    });
+                    updateXY(ballPosition.left,ballPosition.top-5);
                     break;
                 default:
                     break;
             }
-        });
-    }, []);
-
     
+        }
+        
+        );
+        useEffect(()=>{
+            const keyListener = document.addEventListener("keydown",handleListener);
+
+            return function () { document.removeEventListener("keydown",handleListener)};
+
+        },[ballPosition]);
+       
+    });
+
 
     const buttonClickHandler = () => {
         setRenderBall(true)
