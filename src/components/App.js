@@ -11,8 +11,9 @@ const App = () => {
             top:y,
         });
     };
-    useEffect(() => {
-        const keyListener = document.addEventListener("keydown", (event) => {
+    const handleListener=()=>{
+   // useEffect(() => {
+        //const keyListener = document.addEventListener("keydown", (event) => {
            
             switch (event.keyCode) {
                 case 39:
@@ -32,16 +33,12 @@ const App = () => {
             }
     
         }
-        
-        );
         useEffect(()=>{
             const keyListener = document.addEventListener("keydown",handleListener);
 
             return function () { document.removeEventListener("keydown",handleListener)};
 
-        },[ballPosition]);
-       
-    });
+        },[ballPosition]);       
 
 
     const buttonClickHandler = () => {
