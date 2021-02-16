@@ -12,19 +12,19 @@ const App = () => {
         });
     };
     const handleListener=()=>{           
-            switch (event.KeyCode) {
+            switch (event.keyCode) {
                 case 39:
                     updateXY(ballPosition.left+5,ballPosition.top);
                     break;
-                case 40:
-                   updateXY(ballPosition.left,ballPosition.top+5);
-                    break;
-                case 37:
-                    updateXY(ballPosition.left-5,ballPosition.top);
-                    break;
-                case 38:
-                    updateXY(ballPosition.left,ballPosition.top-5);
-                    break;
+                // case 40:
+                //    updateXY(ballPosition.left,ballPosition.top+5);
+                //     break;
+                // case 37:
+                //     updateXY(ballPosition.left-5,ballPosition.top);
+                //     break;
+                // case 38:
+                //     updateXY(ballPosition.left,ballPosition.top-5);
+                //     break;
                 default:
                     break;
             }
