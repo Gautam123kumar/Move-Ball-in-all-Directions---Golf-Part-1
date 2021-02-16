@@ -11,11 +11,8 @@ const App = () => {
             top:y,
         });
     };
-    const handleListener=()=>{
-   // useEffect(() => {
-        //const keyListener = document.addEventListener("keydown", (event) => {
-           
-            switch (event.keyCode) {
+    const handleListener=()=>{           
+            switch (event.KeyCode) {
                 case 39:
                     updateXY(ballPosition.left+5,ballPosition.top);
                     break;
