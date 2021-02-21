@@ -11,7 +11,7 @@ const App = () => {
             top:y,
         });
     };
-    const handleListener=()=>{           
+    const handleListener=(event)=>{           
             switch (event.keyCode) {
                 case 39:
                     updateXY(ballPosition.left+5,ballPosition.top);
